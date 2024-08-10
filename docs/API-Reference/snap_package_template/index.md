@@ -1,1 +1,1 @@
-::: src.snap_package_template
+::: src.snapenv_core

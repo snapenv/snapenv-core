@@ -1,4 +1,4 @@
-[![Open in Dev Containers](https://img.shields.io/static/v1?label=Dev%20Containers&message=Open&color=blue&logo=visualstudiocode)](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/snapenv/snap-package-template) [![Open in GitHub Codespaces](https://img.shields.io/static/v1?label=GitHub%20Codespaces&message=Open&color=blue&logo=github)](https://github.com/snapenv/snap-package-template)
+[![Open in Dev Containers](https://img.shields.io/static/v1?label=Dev%20Containers&message=Open&color=blue&logo=visualstudiocode)](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/snapenv/snapenv-core) [![Open in GitHub Codespaces](https://img.shields.io/static/v1?label=GitHub%20Codespaces&message=Open&color=blue&logo=github)](https://github.com/snapenv/snapenv-core)
 
 ![Static Badge](https://img.shields.io/badge/Python-33.11_%7C_3.12-blue?logo=python&logoColor=white)
 [![Stable Version](https://img.shields.io/pypi/v/bootstrap-python-package?color=blue)](https://pypi.org/project/bootstrap-python-package/)
@@ -15,7 +15,7 @@
 
 # 👖 SnapEnv template for Python package
 
-SnapEnv template for Python package.
+Awesome snapenv_core created by snapenv
 
 It was created having in mind SnapEnv people and what the most common use-cases would be. Following its structure you'll get into developing your next FastAPI server in no time!
 
@@ -41,11 +41,11 @@ It was created having in mind SnapEnv people and what the most common use-cases 
 ### Installing
 
 ```sh
-poetry add snap-package-template
+poetry add snapenv-core
 ```
 
 ```sh
-pip install snap-package-template
+pip install snapenv-core
 ```
 
 ## Contributing
