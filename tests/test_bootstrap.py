@@ -12,9 +12,12 @@ test_some_variable_to_test()
     Asynchronously tests that `some_function` returns the expected value.
 """
 
+import pytest
+
 from snapenv_core import some_function
 
 
+@pytest.mark.asyncio()
 async def test_some_variable_to_test():
     """
     Test that `some_function` returns the expected string.

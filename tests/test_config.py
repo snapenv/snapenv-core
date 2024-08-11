@@ -65,7 +65,6 @@ async def test_secret_dir_exists(mock_exists, mock_makedirs):
     mock_makedirs.assert_not_called()
 
 
-
 @pytest.mark.asyncio()
 @mock.patch("os.makedirs")
 @mock.patch("os.path.exists")
