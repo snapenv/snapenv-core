@@ -6,7 +6,7 @@ permissions: write-all
 
 jobs:
   rename-project:
-    if: ${{ !contains (github.repository, '/snap-package-template') }}
+    if: ${{ !contains (github.repository, '/snapenv-core') }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
