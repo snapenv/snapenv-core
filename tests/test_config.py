@@ -12,7 +12,6 @@ test_config_manager()
     Asynchronously tests that `SnapEnvCommonSettings` returns the expected value.
 """
 
-import os.path
 import platform
 from unittest import mock
 
