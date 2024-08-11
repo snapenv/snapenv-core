@@ -39,7 +39,6 @@ The `.env` file used by the application is determined by the value of the
   the configuration file.
 """
 
-
 # BUILTIN modules
 import os
 import platform
@@ -66,12 +65,42 @@ ENVIRONMENT = os.getenv("ENVIRONMENT", "")
 # if not os.path.exists("/.dockerenv"):
 #     os.makedirs(SECRETS_DIR, exist_ok=True)
 
+
 def initialize_secret_dir() -> None:
+    """
+    Initialize the secret directory if not running inside a Docker container.
+
+    This function checks for the presence of the "/.dockerenv" file to determine
+    if the code is running inside a Docker container. If the file does not exist,
+    it creates the directory specified by the `SECRETS_DIR` module variable.
+
+    Parameters
+    ----------
+    None
+
+    Returns
+    -------
+    None
+
+    Raises
+    ------
+    OSError
+        If the directory creation fails due to insufficient permissions or other
+        file system-related issues.
+
+    Notes
+    -----
+    The function uses `os.makedirs` with `exist_ok=True`, so if the directory
+    specified by `SECRETS_DIR` already exists, the function will not raise an
+    exception.
+    """
     if not os.path.exists("/.dockerenv"):
         os.makedirs(SECRETS_DIR, exist_ok=True)
 
+
 # Call the function at the module level
 initialize_secret_dir()
+
 
 # ------------------------------------------------------------------------
 #
