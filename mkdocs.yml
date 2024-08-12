@@ -89,7 +89,7 @@ theme:
     text: Roboto
     code: Roboto Mono
   extra_css:
-  - assets/mkdocsoad.css
+  - assets/css/style.css
 
 extra:
   status:
@@ -102,7 +102,11 @@ extra:
       link: https://github.com/abnerjacobsen
   version:
     provider: mike
-    default: dev
+    default:
+    default:
+      - latest
+      - dev
+
 
 markdown_extensions:
   - pymdownx.details
