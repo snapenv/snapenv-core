@@ -1,4 +1,5 @@
 from functools import lru_cache
+
 from snapenv_core.settings.manager import SnapEnvCommonSettings
 
 
