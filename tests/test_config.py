@@ -17,7 +17,7 @@ from unittest import mock
 
 import pytest
 
-from snapenv_core.config.manager import SECRETS_DIR, SnapEnvCommonSettings, initialize_secret_dir
+from snapenv_core.settings.manager import SECRETS_DIR, SnapEnvCommonSettings, initialize_secret_dir
 
 
 @pytest.mark.asyncio()
