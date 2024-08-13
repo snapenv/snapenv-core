@@ -11,7 +11,7 @@ copyright: Copyright &copy; 2023 - 2024 Abner G Jacobsen
 plugins:
   - search:
       separator: '[\s\u200b\-_,:!=\[\]()"`/]+|\.(?!\d)|&[lg]t;|(?!\b)(?=[A-Z][a-z])'
-  - mike
+  # - mike
   - awesome-pages
   - macros:
       modules:
@@ -31,6 +31,24 @@ plugins:
       auto_caption: true
       caption_position: bottom
 
+  - autorefs
+  - include-markdown
+  - git-revision-date-localized:
+      enabled: !ENV [CI, false]
+  - git-authors:
+      enabled: !ENV [CI, false]
+  - markdown-exec
+  # - search
+  - section-index
+  - social:
+      enabled: !ENV [CI, false]
+  - mike:
+      canonical_version: "latest"
+      version_selector: true
+  # - redirects:
+  #     redirect_maps:
+  #       contributing.md: index.md
+
 # Do not use the nav section in this file but reference to the .pages files
 # in the docs/ directory and subdirectories (awesome-pages plugin)
 # https://github.com/lukasgeiter/mkdocs-awesome-pages-plugin
@@ -39,7 +57,9 @@ plugins:
 
 theme:
   name: material
-  custom_dir: mkdocs-overrides
+  custom_dir: !relative $docs_dir/overrides
+  # custom_dir: mkdocs-overrides
+  logo: assets/images/logo.png
   features:
     - navigation.expand
     - navigation.top
@@ -58,33 +78,34 @@ theme:
     - content.code.annotate
     - content.code.copy
     - content.tooltips
-
+    - content.tabs.link
+    - navigation.instant
+    - navigation.instant.progress
+    # - navigation.indexes
+    - navigation.tabs.sticky
   palette:
-    # Palette toggle for automatic mode
     - media: "(prefers-color-scheme)"
       toggle:
         icon: material/brightness-auto
-        name: Switch to dark mode
-
-    # Palette toggle for dark mode
-    - scheme: slate
-      media: "(prefers-color-scheme: dark)"
-      primary: teal
-      toggle:
-        icon: material/brightness-4
         name: Switch to light mode
-
-    # Palette toggle for light mode
-    - scheme: default
-      media: "(prefers-color-scheme: light)"
-      primary: teal
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: purple
+      # accent: red
       toggle:
-        icon: material/brightness-7
-        name: Switch to auto mode
-
-  favicon: assets/favicon.png
+        icon: material/weather-night
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: purple
+      accent: yellow
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to automatic mode
+  favicon: assets/images/logo.png
   icon:
-    logo: logo
+    # logo: logo
+    repo: fontawesome/brands/github
   font:
     text: Roboto
     code: Roboto Mono
@@ -103,7 +124,6 @@ extra:
   version:
     provider: mike
     default:
-    default:
       - latest
       - dev
 
@@ -118,8 +138,6 @@ markdown_extensions:
   - def_list
   - footnotes
   - md_in_html
-  - toc:
-      permalink: true
   - pymdownx.arithmatex:
       generic: true
   - pymdownx.betterem:
@@ -161,3 +179,10 @@ markdown_extensions:
   - pymdownx.tasklist:
       custom_checkbox: true
   - pymdownx.tilde
+  - toc:
+      permalink: true
+      permalink: "¤"
+  - codehilite
+  - tables
+  - mdx_truly_sane_lists
+  - pymdownx.details
