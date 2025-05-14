@@ -20,7 +20,7 @@ import pytest
 from snapenv_core.settings.manager import SECRETS_DIR, SnapEnvCommonSettings, initialize_secret_dir
 
 
-@pytest.mark.asyncio()
+@pytest.mark.asyncio
 async def test_config_manager():
     """
     Test that `SnapEnvCommonSettings` returns the expected string.
@@ -39,7 +39,7 @@ async def test_config_manager():
     # assert os.path.exists(SECRETS_DIR) == 1
 
 
-@pytest.mark.asyncio()
+@pytest.mark.asyncio
 @mock.patch("os.makedirs")
 @mock.patch("os.path.exists")
 async def test_secret_dir_exists(mock_exists, mock_makedirs):
@@ -64,7 +64,7 @@ async def test_secret_dir_exists(mock_exists, mock_makedirs):
     mock_makedirs.assert_not_called()
 
 
-@pytest.mark.asyncio()
+@pytest.mark.asyncio
 @mock.patch("os.makedirs")
 @mock.patch("os.path.exists")
 async def test_secret_dir_not_exists(mock_exists, mock_makedirs):
