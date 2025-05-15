@@ -51,6 +51,7 @@ poe test
 ## Formatting and validation
 
 Ensure your code meets our quality standards by running the appropriate formatting and validation script before submitting a pull request:
+   - `poe gen_module_docs`
    - `poe lint`
    - `poe test`
 These scripts will perform code formatting with `ruff`, static type checks with `mypy`, and run unit tests with `pytest`.
