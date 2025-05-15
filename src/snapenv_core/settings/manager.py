@@ -41,12 +41,9 @@ The `.env` file used by the application is determined by the value of the
 
 # BUILTIN modules
 import os
-import platform
 import site
-import sys
 
 # Third party modules
-from pydantic import computed_field
 from pydantic_settings import BaseSettings, PydanticBaseSettingsSource, SettingsConfigDict
 
 # Constants
@@ -73,10 +70,6 @@ def initialize_secret_dir() -> None:
     This function checks for the presence of the "/.dockerenv" file to determine
     if the code is running inside a Docker container. If the file does not exist,
     it creates the directory specified by the `SECRETS_DIR` module variable.
-
-    Parameters
-    ----------
-    None
 
     Returns
     -------
@@ -143,19 +136,11 @@ class SnapEnvCommonSettings(BaseSettings):
 
     Attributes
     ----------
-    env : str
-        The current environment.
-    platform : str
-        The platform on which the code is running.
-    server : str
-        Local server name stripped of possible domain part.
     model_config : SettingsConfigDict
         Configuration dictionary for settings including secrets and .env file handling.
 
     Methods
     -------
-    server():
-        Returns the local server name in upper case.
     settings_customise_sources(settings_cls, init_settings, env_settings, dotenv_settings, file_secret_settings):
         Customizes the source priority order.
     """
@@ -166,25 +151,6 @@ class SnapEnvCommonSettings(BaseSettings):
         env_file_encoding="utf-8",
         env_file=f"{ENVIRONMENT}.env",
     )
-
-    # constant parameters.
-
-    # Environment depending parameters.
-    env: str = ENVIRONMENT
-    platform: str = PLATFORM.get(sys.platform, "other")
-
-    @computed_field  # type: ignore[misc]
-    @property
-    def server(self) -> str:
-        """
-        Return local server name stripped of possible domain part.
-
-        Returns
-        -------
-        str
-            Server name in upper case.
-        """
-        return platform.node()
 
     @classmethod
     def settings_customise_sources(
