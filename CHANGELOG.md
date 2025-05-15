@@ -1,3 +1,45 @@
+## v0.3.0 (2025-05-15)
+
+### ✨ Features
+
+- **manager.py**: remove unused imports, redundant code and default settings of the class
+
+### ci
+
+- **workflow**: set fetch-depth to 0 in checkout step for full git history
+
+### docs
+
+- **examples**: add module-level docstring for settings_basic.py to describe usage
+- **adr-template.md**: update superseded by link to point to ADR-0001 for consistency and accuracy
+
+### feat
+
+- **test_config.py**: introduce SettingsForTests class to extend SnapEnvCommonSettings for testing
+- Add platform and port attributes to SettingsForTests for enhanced test configuration
+- Use no_collect marker to prevent test collection of SettingsForTests
+- Ensure test_config_manager uses SettingsForTests to validate new attributes
+- **settings_basic.py**: introduce DbSettings class for database configuration
+- **settings_basic.py**: add environment and platform attributes to AppSettings for dynamic configuration
+- **settings_basic.py**: set default values for APP_TITLE and LOG_LEVEL in AppSettings
+- **settings_basic.py**: add computed property server to AppSettings to return local server name
+
+### refactor
+
+- **settings_basic.py**: import ENVIRONMENT and PLATFORM for environment-based configuration
+
+### style
+
+- **settings_basic.py**: add spacing and comments for better readability
+
+### test
+
+- **pytest.ini**: add no_collect marker to exclude specific tests from collection
+
+### 🔧🔨📦️ Configuration, Scripts, Packages
+
+- **pyproject.toml**: Add packages
+
 ## v0.2.2 (2025-05-15)
 
 ### 🐛🚑️ Fixes
