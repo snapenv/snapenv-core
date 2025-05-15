@@ -1,3 +1,13 @@
+## v0.2.2 (2025-05-15)
+
+### 🐛🚑️ Fixes
+
+- New version
+
+### ci
+
+- **publish.yml**: specify Python version 3.12 for consistency and predictability in the workflow
+
 ## v0.2.1 (2025-05-15)
 
 ### 🐛🚑️ Fixes
