@@ -4,7 +4,7 @@ build-backend = "poetry.core.masonry.api"
 
 [tool.poetry]  # https://python-poetry.org/docs/pyproject/
 name = "snapenv-core"
-version = "0.2.0"
+version = "0.2.1"
 description = "Awesome snapenv_core created by snapenv"
 authors = ["Abner G Jacobsen <abner@apoana.com.br>"]
 readme = "README.md"
