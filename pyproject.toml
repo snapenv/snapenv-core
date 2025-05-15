@@ -17,7 +17,7 @@ update_changelog_on_bump = true
 version_provider = "poetry"
 
 [tool.poetry.dependencies]  # https://python-poetry.org/docs/dependency-specification/
-python = ">=3.11,<3.13"
+python = ">=3.11,<3.14"
 pydantic = "^2.8.2"
 pydantic-settings = "^2.4.0"
 
@@ -93,6 +93,9 @@ asyncio_mode = "auto"
 addopts = "--color=yes --doctest-modules --exitfirst --failed-first --verbosity=2 --junitxml=reports/pytest.xml"
 testpaths = ["src", "tests"]
 xfail_strict = true
+markers = [
+    "no_collect: mark class to avoid test collection"
+]
 
 [tool.pytest_env]
 ENVIRONMENT = "test"
