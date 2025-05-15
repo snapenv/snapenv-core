@@ -13,11 +13,42 @@ test_config_manager()
 """
 
 import platform
+import sys
 from unittest import mock
 
 import pytest
+from pydantic import computed_field
 
-from snapenv_core.settings.manager import SECRETS_DIR, SnapEnvCommonSettings, initialize_secret_dir
+from snapenv_core.settings.manager import (
+    ENVIRONMENT,
+    SECRETS_DIR,
+    SnapEnvCommonSettings,
+    initialize_secret_dir,
+)
+
+PLATFORM = {"linux": "Linux", "linux2": "Linux", "win32": "Windows", "darwin": "MacOS"}
+
+
+@pytest.mark.no_collect
+class SettingsForTests(SnapEnvCommonSettings):
+    """Test class instantied using `SnapEnvCommonSettings` as base model."""
+
+    env: str = ENVIRONMENT
+    platform: str = PLATFORM.get(sys.platform, "other")
+    port: int = 5432
+
+    @computed_field  # type: ignore[misc]
+    @property
+    def server(self) -> str:
+        """
+        Return local server name stripped of possible domain part.
+
+        Returns
+        -------
+        str
+            Server name in upper case.
+        """
+        return platform.node()
 
 
 @pytest.mark.asyncio
@@ -33,10 +64,11 @@ async def test_config_manager():
     AssertionError
         If the class does not return the expected values.
     """
-    settings = SnapEnvCommonSettings()
+    settings = SettingsForTests()
     assert settings.env == "test"
     assert settings.server == platform.node()
-    # assert os.path.exists(SECRETS_DIR) == 1
+    assert settings.platform == PLATFORM.get(sys.platform, "other")
+    assert isinstance(settings.port, int)
 
 
 @pytest.mark.asyncio
