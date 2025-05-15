@@ -1,3 +1,26 @@
+## v0.2.0 (2025-05-15)
+
+### ✨ Features
+
+- New verson published
+
+### build
+
+- **pyproject.toml**: update mkdocs-material to include imaging extras
+
+### chore
+
+- **snapenv_core**: update version to 0.2.0 to reflect new changes and improvements in the package
+
+### docs
+
+- **CONTRIBUTING.md**: add `poe gen_module_docs` to formatting and validation section to ensure documentation generation is part of the contribution process
+- **API-Reference**: add documentation for snapenv_core module and its settings
+
+### 📌➕⬇️ ➖⬆️  Dependencies
+
+- **poetry.lock**: Updated ependencies
+
 ## v0.1.0 (2025-05-14)
 
 ### chore
