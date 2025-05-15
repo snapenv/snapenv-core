@@ -28,4 +28,4 @@ def some_function() -> str:
     str
         A string containing "some_variable_to_test".
     """
-    return "some_value_to_test"
+    return "some_variable_to_test"
